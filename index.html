@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emberwing — Tribal Skies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <canvas id="sky"></canvas>
+
+  <div id="vignette"></div>
+
+  <section id="menu" class="panel">
+    <p class="eyebrow">A flight game inspired by Wings of Fire</p>
+    <h1>Emberwing</h1>
+    <p class="tagline">Choose your tribe. Take the sky. Hunt treasure across Pyrrhia-inspired lands.</p>
+
+    <div id="tribes" class="tribe-grid" role="listbox" aria-label="Dragon tribes"></div>
+
+    <div class="preview-row">
+      <canvas id="preview" width="420" height="220" aria-hidden="true"></canvas>
+      <div class="tribe-copy">
+        <h2 id="tribe-name">Nightstar</h2>
+        <p id="tribe-epithet" class="epithet">Watchers of the Stars</p>
+        <p id="tribe-desc"></p>
+        <ul id="tribe-stats" class="stats"></ul>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btn-solo" class="primary">Solo Flight</button>
+      <button id="btn-coop" class="ghost">Two Dragons</button>
+    </div>
+    <p class="hint">
+      <strong>Solo:</strong> WASD or arrows fly · Space breath · F claws · Shift dash · Q roar · Esc pause
+      <br />
+      <strong>Two dragons:</strong> P1 WASD + Space + F / P2 Arrows + Enter + K · breath and claws hit other dragons
+      <br />
+      Swoop, slash, or breathe on forest deer to hunt. Wild dragons will fight back.
+    </p>
+  </section>
+
+  <section id="hud" class="hud hidden" aria-live="polite">
+    <div class="hud-left">
+      <div class="hud-tribe">
+        <span id="hud-p1-name">Nightstar</span>
+        <span id="hud-mode">Solo</span>
+      </div>
+      <div class="bar">
+        <label>Health</label>
+        <div class="track"><i id="hp-bar"></i></div>
+      </div>
+      <div class="bar">
+        <label>Stamina</label>
+        <div class="track stamina"><i id="stamina-bar"></i></div>
+      </div>
+      <div class="bar">
+        <label>Breath</label>
+        <div class="track breath"><i id="breath-bar"></i></div>
+      </div>
+    </div>
+    <div class="hud-center">
+      <div id="banner" class="banner"></div>
+    </div>
+    <div class="hud-right">
+      <div class="stat-pill">Moon globes <b id="score">0</b> / <span id="score-max">24</span></div>
+      <div class="stat-pill">Deer <b id="deer-count">0</b></div>
+      <div class="stat-pill">Downs <b id="kills">0</b></div>
+      <div class="stat-pill" id="p2-pill" hidden>P2 Health <b id="hp2">100</b></div>
+    </div>
+  </section>
+
+  <section id="pause" class="panel hidden">
+    <h1>Perched</h1>
+    <p class="tagline">The sky is waiting.</p>
+    <div class="actions">
+      <button id="btn-resume" class="primary">Return to Sky</button>
+      <button id="btn-menu" class="ghost">Tribe Select</button>
+    </div>
+    <p class="hint">Fight other dragons with breath and claws. Hunt deer in the forests below.</p>
+  </section>
+
+  <section id="win" class="panel hidden">
+    <h1>Skyclaimed</h1>
+    <p class="tagline" id="win-copy">Your winglet gathered every moon globe.</p>
+    <div class="actions">
+      <button id="btn-again" class="primary">Fly Again</button>
+      <button id="btn-win-menu" class="ghost">Tribe Select</button>
+    </div>
+  </section>
+
+  <script src="js/game.js"></script>
+</body>
+</html>
